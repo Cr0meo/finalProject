@@ -26,15 +26,6 @@ var Personage = function ( params ) {
                          || typeof params.timeInterval !== "number"
                          ? 100 : params.timeInterval
     this.interval = setInterval ( this.mc_personage.bind ( this ), this.delay )
-    var x = document.createElement ('button')
-    document.body.appendChild (x)
-    x.innerHTML = 'STOP ME'
-    x.onclick = function stopAnimation (event) {
-      this.interval = setInterval ( this.mc_personage.bind ( this ), 1000 )
-      clearInterval ( this.interval ) }
-    }
-
-
 Personage.prototype.setRoutePoints = function () {
     for ( var item of this.route ) {
     		if ( !Array.isArray ( item ) ||

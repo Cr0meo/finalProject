@@ -1,2 +1,2 @@
 it's a final project for a-level school
-link to sample : https://repl.it/@DenisKlimenko/final-task-project
+link to sample : https://cr0meo.github.io/finalProject/
