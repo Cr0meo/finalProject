@@ -1,0 +1,26 @@
+body {
+    background-color: white;
+    color:black;
+    font-family: monospace, Arial, sans-serif;
+}
+.Button1st {
+    position: fixed;
+    top: 10px;
+    right: 5px;
+    font-size: 16px;
+    padding: 10px 15px;
+}
+.Button2nd {
+  position: fixed;
+  bottom:10px;
+  right: 5px;
+  font-size: 16px;
+  padding: 10px 15px;
+}
+.stopButton {
+  position: fixed;
+  top:50%;
+  right: 50%;
+  font-size: 16px;
+  padding: 10px 15px;
+}
