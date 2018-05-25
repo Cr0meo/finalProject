@@ -26,7 +26,14 @@ var Personage = function ( params ) {
                          || typeof params.timeInterval !== "number"
                          ? 100 : params.timeInterval
     this.interval = setInterval ( this.mc_personage.bind ( this ), this.delay )
+    var x = document.createElement ('button')
+    document.body.appendChild (x)
+    x.innerHTML = 'STOP ME'
+    x.onclick = function stopAnimation (event) {
+      this.interval = setInterval ( this.mc_personage.bind ( this ), 1000 )
+      clearInterval ( this.interval ) }
     }
+
 
 Personage.prototype.setRoutePoints = function () {
     for ( var item of this.route ) {
@@ -77,8 +84,10 @@ Personage.prototype.mc_personage = function ( event ) {
               Math.sign(distance [1]) * this.velocity : 0
       this.element.style.left = this.currentPosition [0] + 'px'
       this.element.style.top = this.currentPosition [1] + 'px'
+
       if ( distance [0] === 0 && distance [1] === 0 )
                             this.getNextPointIndex ()
+
 }
 
 Personage.prototype.defaultRoute = [
@@ -113,4 +122,3 @@ function start2sndAnimation () {document.personage = new Personage ({
   routePoints:newPoints,imgURL:"./images/person2.gif"
   })
 }
-function stopAnimation () {}
