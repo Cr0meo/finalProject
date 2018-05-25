@@ -26,6 +26,7 @@ var Personage = function ( params ) {
                          || typeof params.timeInterval !== "number"
                          ? 100 : params.timeInterval
     this.interval = setInterval ( this.mc_personage.bind ( this ), this.delay )
+  }
 Personage.prototype.setRoutePoints = function () {
     for ( var item of this.route ) {
     		if ( !Array.isArray ( item ) ||
