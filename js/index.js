@@ -64,6 +64,7 @@ Personage.prototype.getDistance = function ( ind ) {
 }
 
 Personage.prototype.mc_personage = function ( event ) {
+       if (!isStop){
         var distance = []
         distance [0] = this.getDistance ( 0 )
         distance [1] = this.getDistance ( 1 )
@@ -79,7 +80,7 @@ Personage.prototype.mc_personage = function ( event ) {
 
       if ( distance [0] === 0 && distance [1] === 0 )
                             this.getNextPointIndex ()
-
+                          }
 }
 
 Personage.prototype.defaultRoute = [
@@ -106,11 +107,36 @@ Personage.prototype.pointStyle = {
     backgroundPosition: "center center",
     backgroundImage: "url(" + this.defaultPointImage + ")"
 }
+var isStop = false;
+var btn = document.createElement ( 'button' )
+document.body.appendChild ( btn )
+btn.innerHTML = "Стоп"
+btn.style.position = "fixed"
+btn.style.top = "50%"
+btn.style.right = "55%"
+btn.style.height = '30px'
+btn.onclick = function ( e ) {
+   e.preventDefault();
+  isStop = true;
+}
 
-function start1stAnimation () {document.personage = new Personage ( {
+var btn = document.createElement ( 'button' )
+document.body.appendChild ( btn )
+btn.innerHTML = "Старт"
+btn.style.position = "fixed"
+btn.style.top = "50%"
+btn.style.right = "45%"
+btn.style.height = '30px'
+btn.onclick = function ( e ) {
+ e.preventDefault();
+  isStop = false;
+}
+function start1stAnimation () {isStop = false;
+  document.personage = new Personage ( {
       routePoints: document.routePoints
 })}
-function start2sndAnimation () {document.personage = new Personage ({
+function start2sndAnimation () {isStop = false;
+  document.personage = new Personage ({
   routePoints:newPoints,imgURL:"./images/person2.gif"
   })
 }
